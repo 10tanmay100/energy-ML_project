@@ -1,0 +1,11 @@
+id: int64
+cooling_load: float64
+glazing_area: float64
+glazing_area_distribution: int64
+heating_load: float64
+orientation: int64
+overall_height: float64
+relative_compactness: float64
+roof_area: float64
+surface_area: float64
+wall_area: float64

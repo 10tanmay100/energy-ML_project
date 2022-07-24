@@ -1,2 +1,11 @@
 Flask
 gunicorn
+pandas
+numpy
+matplotlib
+seaborn
+ipykernel
+cassandra-driver
+PYyaml
+sklearn
+-e .
