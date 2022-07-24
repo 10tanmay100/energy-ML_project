@@ -36,7 +36,7 @@ class DataTransformation:
             df1=df1.reset_index(drop=True)
             df2=self.path[["cooling_load","heating_load"]].reset_index(drop=True)
             pd.concat([df1,df2],axis=1).to_csv(path_dir,index=False)
-            os.makedirs(os.path.join(TRANSFORMED_PATH_PICKLE,self.timestamp))
+            os.makedirs(os.path.join(TRANSFORMED_PATH_PICKLE,self.timestamp),exist_ok=True)
             path_pkl=os.path.join(TRANSFORMED_PATH_PICKLE,self.timestamp,"preprocessed.pkl")
             with open(path_pkl,"wb") as f:
                 pickle.dump(preprocessing,f)

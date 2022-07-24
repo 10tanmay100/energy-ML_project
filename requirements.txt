@@ -8,4 +8,5 @@ ipykernel
 cassandra-driver
 PYyaml
 sklearn
+flask_cors
 -e .

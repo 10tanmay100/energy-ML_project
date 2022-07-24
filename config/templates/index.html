@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Heat and Cool Load Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="/predict"method="post">
+    	<input type="number" name="glazing_area" placeholder="glazing_area" required="required" step="any" />
+        <input type="number" name="glazing_area" placeholder="relative_compactness" required="required" step="any" />
+        <input type="number" name="roof_area" placeholder="roof_area" required="required" step="any" />
+		<input type="number" name="wall_area" placeholder="wall_area" required="required" step="any"/>
+     
+</select>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+
+ </div>
+
+
+</body>
+</html>
