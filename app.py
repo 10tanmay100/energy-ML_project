@@ -6,7 +6,7 @@ import pickle
 import pandas as pd
 import warnings
 from flask_cors import CORS, cross_origin
-app=Flask(__name__)
+app=Flask(__name__,template_folder="templates")
 
 @app.route("/",methods=["GET","POST"])
 
@@ -30,6 +30,6 @@ def predict():
     df1=pd.DataFrame(scaler.transform(df),columns=df.columns)
     cool_ans=cool.predict(df1)
     heat_ans=heat.predict(df1)
-    return render_template("index.html",prediction_text="cool is "+str(cool_ans)+"and "+"heat is "+str(heat_ans))
+    return render_template("index.html",prediction_text="cooling load will be "+str(cool_ans[0]) +" and heating_load will be "+str(heat_ans[0]))
 if __name__=="__main__":
     app.run(debug=True)

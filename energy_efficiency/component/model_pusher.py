@@ -32,6 +32,6 @@ class pusher:
         f=open(os.path.join(ROOT_DIR,"model_cool.pkl"),"wb")
         pickle.dump(self.model1,f)
         f1=open(os.path.join(ROOT_DIR,"model_heat.pkl"),"wb")
-        pickle.dump(self.model2,f)
+        pickle.dump(self.model2,f1)
         shutil.copy(self.pre,ROOT_DIR)
         print('done push')

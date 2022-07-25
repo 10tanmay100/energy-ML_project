@@ -25,13 +25,13 @@ class DataTransformation:
             num_pipeline = Pipeline(steps=[
                 ('imputer', KNNImputer(n_neighbors=2)),
                 ('scaler', StandardScaler())])
-            cols_transform=["glazing_area","glazing_area_distribution","orientation",'overall_height',"relative_compactness","roof_area","surface_area","wall_area"]
+            cols_transform=["glazing_area","relative_compactness","roof_area","wall_area"]
             logging.info("pipeline created")
             preprocessing = ColumnTransformer([('num_pipeline', num_pipeline,cols_transform)])
             os.makedirs(os.path.join(TRANSFORMED_PATH,self.timestamp),exist_ok=True)
             logging.info("preprocessing file craeted")
             path_dir=os.path.join(TRANSFORMED_PATH,self.timestamp,"transformed.csv")
-            df=self.path[["glazing_area","glazing_area_distribution","orientation",'overall_height',"relative_compactness","roof_area","surface_area","wall_area"]]
+            df=self.path[cols_transform]
             df1=pd.DataFrame(preprocessing.fit_transform(df),columns=df.columns)
             df1=df1.reset_index(drop=True)
             df2=self.path[["cooling_load","heating_load"]].reset_index(drop=True)
